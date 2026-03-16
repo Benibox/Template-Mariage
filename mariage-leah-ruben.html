@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leah & Ruben — Mariage</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --blue: #5B8FA8;
+  --blue-dark: #3A6B82;
+  --blue-light: #8BB8CC;
+  --blue-pale: #D4E8F0;
+  --blue-text: #4A7B94;
+  --gold: #C4A265;
+  --cream: #F9F6F1;
+  --paper: #F5F1EB;
+  --dark: #3A3A3A;
+  --text: #5A5A5A;
+  --text-light: #8A8A8A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: #FFFFFF;
+  color: var(--dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HOMEPAGE — NE PAS TOUCHER
+   ============================================================ */
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #FFFFFF;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  flex-direction: column;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#home.hidden {
+  opacity: 0;
+  transform: translateY(-30px);
+  pointer-events: none;
+}
+
+.dove {
+  width: min(400px, 75vw);
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeIn 1.2s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.dove img {
+  width: 100%;
+  filter: drop-shadow(0 10px 30px rgba(74, 144, 184, 0.15));
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.enter-btn {
+  margin-top: 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: var(--blue-dark);
+  background: transparent;
+  border: 1px solid var(--blue-light);
+  padding: 0.9rem 2.8rem;
+  border-radius: 0;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 1s 1.2s forwards;
+  transition: all 0.3s;
+}
+
+.enter-btn:hover {
+  background: var(--blue);
+  color: #FFFFFF;
+  border-color: var(--blue);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #2C5468;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.9);
+  padding: 1.1rem 2rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: rgba(255,255,255,0.15);
+  color: #FFFFFF;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger span {
+  width: 22px; height: 1.5px;
+  background: #FFFFFF;
+  display: block;
+  transition: 0.3s;
+}
+
+/* ============================================================
+   PAPER BACKGROUND TEXTURE
+   ============================================================ */
+.paper-bg {
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.paper-crumpled {
+  background-color: #F8F5F0;
+  background-image:
+    linear-gradient(125deg, transparent 0%, rgba(0,0,0,0.02) 15%, transparent 20%, rgba(0,0,0,0.015) 35%, transparent 42%, rgba(0,0,0,0.025) 55%, transparent 60%, rgba(0,0,0,0.01) 75%, transparent 80%, rgba(0,0,0,0.02) 90%, transparent 100%),
+    linear-gradient(235deg, transparent 0%, rgba(0,0,0,0.018) 10%, transparent 18%, rgba(0,0,0,0.022) 30%, transparent 38%, rgba(0,0,0,0.012) 50%, transparent 58%, rgba(0,0,0,0.02) 70%, transparent 78%, rgba(0,0,0,0.015) 88%, transparent 100%),
+    linear-gradient(55deg, transparent 0%, rgba(255,255,255,0.4) 12%, transparent 20%, rgba(255,255,255,0.3) 32%, transparent 40%, rgba(255,255,255,0.35) 52%, transparent 60%, rgba(255,255,255,0.25) 72%, transparent 82%),
+    linear-gradient(310deg, transparent 0%, rgba(0,0,0,0.015) 8%, transparent 16%, rgba(255,255,255,0.3) 28%, transparent 36%, rgba(0,0,0,0.02) 48%, transparent 55%, rgba(255,255,255,0.2) 65%, transparent 75%, rgba(0,0,0,0.018) 85%, transparent 95%),
+    url("data:image/svg+xml,%3Csvg width='500' height='500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cr'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015 0.02' numOctaves='6' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.12' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23cr)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   SECTION EVENEMENT
+   ============================================================ */
+.event-section {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(91, 143, 168, 0.1);
+}
+
+.event-illustration {
+  width: min(300px, 55vw);
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.event-illustration.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.event-illustration img,
+.event-illustration svg {
+  width: 100%;
+}
+
+.event-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: var(--blue-dark);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.event-intro {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.event-date {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--dark);
+  margin-bottom: 0.3rem;
+}
+
+.event-time {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.event-venue {
+  font-family: 'Cormorant SC', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--dark);
+  margin-bottom: 0.3rem;
+}
+
+.event-address {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.waze-link {
+  display: inline-block;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--blue-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+
+.waze-link:hover { color: var(--blue-dark); }
+
+.save-date-btn {
+  display: inline-block;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: var(--blue);
+  border: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.save-date-btn:hover { background: var(--blue-dark); }
+
+.dress-code {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.event-extra {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   FAIRE-PART SECTION
+   ============================================================ */
+.fairepart-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(91, 143, 168, 0.1);
+}
+
+.fairepart-rings {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--gold);
+}
+
+.fairepart-families {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.family-side {
+  text-align: center;
+}
+
+.family-side .parent-names {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.family-side .parent-bold {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.fairepart-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.fairepart-announce {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.fairepart-names {
+  font-family: 'Cormorant SC', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+.fairepart-hebrew {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  letter-spacing: 3rem;
+}
+
+/* ============================================================
+   RSVP
+   ============================================================ */
+.rsvp-section {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.rsvp-section .event-title {
+  margin-bottom: 1rem;
+}
+
+.rsvp-illustration {
+  width: min(200px, 40vw);
+  margin: 0 auto 2rem;
+}
+
+.rsvp-illustration img { width: 100%; }
+
+.rsvp-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  border: 1px solid var(--blue-pale);
+  background: rgba(212, 232, 240, 0.2);
+  border-radius: 2px;
+  color: var(--dark);
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--blue);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.radio-group input[type="radio"] {
+  width: auto;
+  accent-color: var(--blue);
+}
+
+.submit-btn {
+  width: 100%;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: var(--blue);
+  border: none;
+  padding: 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover { background: var(--blue-dark); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+footer .footer-logo { width: 80px; margin: 0 auto 1rem; }
+footer .footer-logo img { width: 100%; opacity: 0.4; }
+
+footer .footer-text {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--text-light);
+}
+
+.event-emoji {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.8;
+}
+
+/* Music toggle button */
+.music-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--blue-light);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+.music-btn:hover {
+  background: var(--blue);
+  color: #FFFFFF;
+  border-color: var(--blue);
+}
+.music-btn.visible { display: flex; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  nav ul.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #2C5468;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+  }
+  nav ul.open li a { font-size: 1rem; padding: 1rem 2rem; }
+  .hamburger { display: flex; }
+
+  nav { justify-content: flex-end; }
+
+  .event-title { font-size: 1.6rem; letter-spacing: 4px; }
+  .event-date { font-size: 1.2rem; }
+  .fairepart-families { gap: 3rem; }
+  .fairepart-names { font-size: 1.5rem; }
+  .fairepart-hebrew { letter-spacing: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="The Boss.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">&#9835;</button>
+
+<!-- ============================================================
+     HOMEPAGE — LA COLOMBE (NE PAS TOUCHER)
+     ============================================================ -->
+<section id="home">
+  <div class="dove"><img src="coeur.png" alt="Love"></div>
+  <button class="enter-btn" onclick="enterSite()">Accéder à l'invitation</button>
+</section>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <ul id="navMenu">
+    <li><a href="#mairie">Mairie</a></li>
+    <li><a href="#beach">Beach Party</a></li>
+    <li><a href="#houppa">Houppa</a></li>
+    <li><a href="#soiree">Soirée</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     BIENVENUE + FAIRE-PART
+     ============================================================ -->
+<section class="fairepart-section paper-bg" style="position:relative;overflow:hidden;">
+
+  <img src="love.png" alt="Love" style="position:absolute;left:2rem;top:2rem;width:220px;opacity:0.85;">
+
+  <div class="event-illustration" data-anim>
+    <img src="maries_site.webp" alt="Leah & Ruben" style="width:100%;max-width:350px;">
+  </div>
+
+  <div class="fairepart-families">
+    <div class="family-side">
+      <div class="parent-names">
+        <span class="parent-bold">Famille de la mariée</span><br>
+        Mr & Mme Cohen<br>
+        <span class="parent-bold">Sarah & David</span>
+      </div>
+    </div>
+    <div class="family-side">
+      <div class="parent-names">
+        <span class="parent-bold">Famille du marié</span><br>
+        Mr & Mme Lévy<br>
+        <span class="parent-bold">Rachel & Nathan</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fairepart-text">
+    Accompagnés par la lumière de leurs grands-parents
+  </div>
+
+  <div class="fairepart-announce">
+    Ont la joie de vous annoncer le mariage de leurs enfants<br>et petits enfants
+  </div>
+
+  <div class="fairepart-names">Leah & Ruben</div>
+  <div class="fairepart-hebrew">לאה&nbsp;&nbsp;&nbsp;ראובן</div>
+
+  <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:0 auto;"></div>
+</section>
+
+<!-- ============================================================
+     MAIRIE
+     ============================================================ -->
+<section id="mairie" class="event-section paper-bg">
+  <div class="event-illustration" data-anim>
+    <img src="mairie_transparente.webp" alt="Mairie" style="width:100%;max-width:400px;">
+  </div>
+
+  <h2 class="event-title">Mairie</h2>
+
+  <p class="event-intro">
+    Nous nous dirons "oui" le
+  </p>
+
+  <div class="event-date">Dimanche 12 Juillet 2026</div>
+  <div class="event-time">À 15h00</div>
+
+  <div class="event-venue">Mairie du 16ème arrondissement</div>
+  <div class="event-address">71 Avenue Henri Martin, 75016 Paris</div>
+
+  <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#" class="save-date-btn">Je bloque la date ! 📅</a>
+
+  <div style="margin-top:2.5rem;">
+    <img src="alliances_transparent.webp" alt="Alliances" style="width:100%;max-width:250px;opacity:0.9;">
+  </div>
+</section>
+
+<!-- ============================================================
+     HOUPPA
+     ============================================================ -->
+<section id="houppa" class="event-section paper-bg">
+  <div class="event-illustration" data-anim>
+    <img src="houppa_illustration.png" alt="Houppa" style="width:100%;max-width:400px;">
+  </div>
+
+  <h2 class="event-title">Houppa</h2>
+
+  <p class="event-intro">
+    Leah & Ruben seront honorés de votre présence<br>
+    à la cérémonie religieuse
+  </p>
+
+  <div class="event-date">Mardi 14 Juillet 2026</div>
+  <div class="event-time">À 17h30</div>
+
+  <div class="event-venue">Gan HaPaamon — Jérusalem</div>
+  <div class="event-address">Emek Refaim, Jérusalem, Israël</div>
+
+  <div class="fairepart-text" style="margin-top:1.5rem;">
+    Accompagnés par la lumière de leurs grands-parents
+  </div>
+
+  <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#" class="save-date-btn">Save the date 📅</a>
+</section>
+
+<!-- ============================================================
+     BEACH PARTY
+     ============================================================ -->
+<section id="beach" class="event-section paper-crumpled">
+  <div class="event-illustration" data-anim>
+    <img src="beach_party_transparent.webp" alt="Beach Party" style="width:100%;max-width:450px;">
+  </div>
+
+  <h2 class="event-title">Beach Party</h2>
+
+  <p class="event-intro">
+    Leah & Ruben vous invitent à prolonger la fête<br>
+    les pieds dans le sable
+  </p>
+
+  <div class="event-date">Mercredi 15 Juillet 2026</div>
+  <div class="event-time">À 19h00</div>
+
+  <div class="event-venue">Banana Beach — Tel Aviv</div>
+  <div class="event-address">Plage Banana, Neve Tzedek, Tel Aviv, Israël</div>
+
+  <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#" class="save-date-btn">Save the date 📅</a>
+</section>
+
+<!-- ============================================================
+     SOIRÉE
+     ============================================================ -->
+<section id="soiree" class="event-section" style="background:#FFFFFF;">
+  <div class="event-illustration" data-anim>
+    <img src="soiree_illustration.png" alt="Soirée" style="width:100%;max-width:400px;">
+  </div>
+
+  <h2 class="event-title">Soirée</h2>
+
+  <p class="event-intro">
+    La fête commence ! Dîner, danse et célébrations<br>
+    jusqu'au bout de la nuit
+  </p>
+
+  <div class="event-date">Mardi 14 Juillet 2026</div>
+  <div class="event-time">À 20h00</div>
+
+  <div class="event-venue">Domaine de la Rosière — Jérusalem</div>
+  <div class="event-address">Ein Kerem, Jérusalem, Israël</div>
+
+  <div class="dress-code">Dress Code : Tenue de soirée élégante</div>
+
+  <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#" class="save-date-btn">Save the date 📅</a>
+</section>
+
+<!-- ============================================================
+     RSVP
+     ============================================================ -->
+<section id="rsvp" class="rsvp-section paper-bg">
+  <div class="event-illustration" data-anim>
+    <img src="rsvp_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
+  </div>
+
+  <h2 class="event-title">RSVP</h2>
+
+  <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Merci pour votre réponse !');">
+    <div class="form-group">
+      <label>Nom & Prénom</label>
+      <input type="text" placeholder="Votre nom complet" required>
+    </div>
+
+    <div class="form-group">
+      <label>Assisteront à la réception</label>
+      <div class="radio-group">
+        <label><input type="radio" name="presence" value="oui" required> Oui</label>
+        <label><input type="radio" name="presence" value="non"> Non</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre de personne(s)</label>
+      <input type="number" min="1" max="10" placeholder="1">
+    </div>
+
+    <div class="form-group">
+      <label>Message aux mariés</label>
+      <textarea placeholder="Un petit mot pour Leah & Ruben..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Envoyer</button>
+  </form>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-logo"><img src="coeur.png" alt="L&R"></div>
+  <div class="footer-text">Leah & Ruben — avec amour</div>
+</footer>
+
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script>
+/* Scroll animations */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+
+/* Active nav */
+window.addEventListener('scroll', () => {
+  let current = '';
+  document.querySelectorAll('section[id]').forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+/* Enter site + start music */
+function enterSite() {
+  document.getElementById('home').classList.add('hidden');
+  setTimeout(() => { document.getElementById('home').style.display = 'none'; }, 600);
+  const music = document.getElementById('bgMusic');
+  music.volume = 0.4;
+  music.play();
+  document.getElementById('musicBtn').classList.add('visible');
+}
+
+/* Music toggle */
+let musicPlaying = true;
+function toggleMusic() {
+  const music = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+  if (musicPlaying) {
+    music.pause();
+    btn.innerHTML = '&#9834;';
+    btn.style.opacity = '0.5';
+  } else {
+    music.play();
+    btn.innerHTML = '&#9835;';
+    btn.style.opacity = '1';
+  }
+  musicPlaying = !musicPlaying;
+}
+
+/* Mobile menu */
+function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+document.querySelectorAll('#navMenu a').forEach(a =>
+  a.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'))
+);
+</script>
+
+</body>
+</html>

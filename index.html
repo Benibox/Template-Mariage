@@ -627,22 +627,26 @@ footer .footer-text {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  nav ul { display: none; }
-  nav ul.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #2C5468;
+  nav {
     justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 1000;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  nav ul.open li a { font-size: 1rem; padding: 1rem 2rem; }
-  .hamburger { display: flex; }
-
-  nav { justify-content: flex-end; }
+  nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar { display: none; }
+  nav ul li a {
+    font-size: 0.7rem;
+    padding: 0.9rem 1rem;
+    white-space: nowrap;
+    letter-spacing: 1.5px;
+  }
+  .hamburger { display: none; }
 
   .love-deco { display: none; }
   .alliances-deco { display: none; }

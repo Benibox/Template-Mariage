@@ -26,10 +26,17 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Cormorant Garamond', serif;
-  background: #FFFFFF;
+  background: #F0EAE0;
   color: var(--dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+#texture-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
 }
 
 /* ============================================================
@@ -305,7 +312,7 @@ nav ul li a.active {
 .fairepart-section {
   padding: 5rem 2rem;
   text-align: center;
-  background: #FFFFFF;
+  background: transparent;
   border-bottom: 1px solid rgba(91, 143, 168, 0.1);
 }
 
@@ -484,7 +491,7 @@ nav ul li a.active {
 footer {
   text-align: center;
   padding: 3rem 2rem;
-  background: var(--paper);
+  background: transparent;
 }
 
 footer .footer-logo { width: 80px; margin: 0 auto 1rem; }
@@ -565,6 +572,8 @@ footer .footer-text {
 </head>
 <body>
 
+<canvas id="texture-bg"></canvas>
+
 <audio id="bgMusic" loop preload="auto">
   <source src="The Boss.mp3" type="audio/mpeg">
 </audio>
@@ -595,7 +604,7 @@ footer .footer-text {
 <!-- ============================================================
      BIENVENUE + FAIRE-PART
      ============================================================ -->
-<section class="fairepart-section paper-bg" style="position:relative;overflow:hidden;">
+<section class="fairepart-section" style="position:relative;overflow:hidden;">
 
   <img src="love.png" alt="Love" class="love-deco" style="position:absolute;left:2rem;top:2rem;width:220px;opacity:0.85;">
 
@@ -637,7 +646,7 @@ footer .footer-text {
 <!-- ============================================================
      MAIRIE
      ============================================================ -->
-<section id="mairie" class="event-section paper-bg" style="position:relative;overflow:hidden;">
+<section id="mairie" class="event-section" style="position:relative;overflow:hidden;">
   <img src="alliances_transparent.webp" alt="Alliances" class="alliances-deco" style="position:absolute;right:1rem;top:1.5rem;width:180px;opacity:0.85;">
   <div class="event-illustration" data-anim>
     <img src="mairie_transparente.webp" alt="Mairie" style="width:100%;max-width:500px;">
@@ -664,7 +673,7 @@ footer .footer-text {
 <!-- ============================================================
      HOUPPA
      ============================================================ -->
-<section id="houppa" class="event-section paper-bg">
+<section id="houppa" class="event-section">
   <div class="event-illustration" data-anim>
     <img src="houppa_illustration.png" alt="Houppa" style="width:100%;max-width:500px;">
   </div>
@@ -694,7 +703,7 @@ footer .footer-text {
 <!-- ============================================================
      BEACH PARTY
      ============================================================ -->
-<section id="beach" class="event-section paper-crumpled">
+<section id="beach" class="event-section">
   <div class="event-illustration" data-anim>
     <img src="beach_party_transparent.webp" alt="Beach Party" style="width:100%;max-width:550px;">
   </div>
@@ -720,7 +729,7 @@ footer .footer-text {
 <!-- ============================================================
      SOIRÉE
      ============================================================ -->
-<section id="soiree" class="event-section" style="background:#FFFFFF;">
+<section id="soiree" class="event-section">
   <div class="event-illustration" data-anim>
     <img src="soiree_illustration.png" alt="Soirée" style="width:100%;max-width:500px;">
   </div>
@@ -748,7 +757,7 @@ footer .footer-text {
 <!-- ============================================================
      RSVP
      ============================================================ -->
-<section id="rsvp" class="rsvp-section paper-bg">
+<section id="rsvp" class="rsvp-section">
   <div class="event-illustration" data-anim>
     <img src="rsvp_transparent.webp" alt="RSVP" style="width:100%;max-width:450px;">
   </div>
@@ -845,6 +854,68 @@ function toggleMenu() { document.getElementById('navMenu').classList.toggle('ope
 document.querySelectorAll('#navMenu a').forEach(a =>
   a.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'))
 );
+</script>
+
+<script>
+/* ═══ FOND LIN ═══ */
+const BASE_R = 240, BASE_G = 234, BASE_B = 224;
+
+function pnoise(x, y, seed) {
+  const a = Math.sin(x * 12.9898 + y * 78.233 + seed) * 43758.5453;
+  return a - Math.floor(a);
+}
+
+function smoothNoise(x, y, scale, seed) {
+  const sx = x / scale, sy = y / scale;
+  const ix = Math.floor(sx), iy = Math.floor(sy);
+  const fx = sx - ix, fy = sy - iy;
+  const ux = fx * fx * (3 - 2 * fx);
+  const uy = fy * fy * (3 - 2 * fy);
+  const a = pnoise(ix, iy, seed), b = pnoise(ix + 1, iy, seed);
+  const c = pnoise(ix, iy + 1, seed), d = pnoise(ix + 1, iy + 1, seed);
+  return a * (1 - ux) * (1 - uy) + b * ux * (1 - uy) + c * (1 - ux) * uy + d * ux * uy;
+}
+
+function drawLin(ctx, w, h) {
+  const img = ctx.createImageData(w, h);
+  const d = img.data;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      const threadH = Math.sin(y * 3.2) * 0.5 + 0.5;
+      const threadV = Math.sin(x * 3.0) * 0.5 + 0.5;
+      const weavePhase = (Math.floor(x / 3) + Math.floor(y / 3)) % 2;
+      const weave = weavePhase === 0
+        ? threadH * 0.7 + threadV * 0.3
+        : threadH * 0.3 + threadV * 0.7;
+      const thickVar = smoothNoise(x, y, 60, 22) * 0.4;
+      const val = (weave * 0.5 + thickVar) * 10;
+      const tc = pnoise(Math.floor(x / 3), Math.floor(y / 3), 44);
+      const broad = smoothNoise(x, y, 150, 88) * 6 - 3;
+      d[i]     = BASE_R - val + tc * 4 + broad;
+      d[i + 1] = BASE_G - val + tc * 3 + broad;
+      d[i + 2] = BASE_B - val + tc * 2 + broad;
+      d[i + 3] = 255;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+}
+
+const _canvas = document.getElementById('texture-bg');
+const _ctx = _canvas.getContext('2d');
+function renderBg() {
+  const maxDim = 900;
+  const aspect = window.innerWidth / window.innerHeight;
+  let cw, ch;
+  if (aspect > 1) { cw = maxDim; ch = Math.round(maxDim / aspect); }
+  else { ch = maxDim; cw = Math.round(maxDim * aspect); }
+  _canvas.width = cw;
+  _canvas.height = ch;
+  drawLin(_ctx, cw, ch);
+}
+renderBg();
+let _t;
+window.addEventListener('resize', () => { clearTimeout(_t); _t = setTimeout(renderBg, 200); });
 </script>
 
 </body>

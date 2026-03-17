@@ -273,21 +273,21 @@ nav ul li a.active {
 .save-date-btn {
   display: inline-block;
   font-family: 'Cormorant SC', serif;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: #FFFFFF;
-  background: var(--blue);
+  background: #2C5468;
   border: none;
-  padding: 0.9rem 2.5rem;
+  padding: 0.6rem 1.8rem;
   border-radius: 2px;
   cursor: pointer;
   text-decoration: none;
   transition: background 0.3s;
 }
 
-.save-date-btn:hover { background: var(--blue-dark); }
+.save-date-btn:hover { background: #1e3d4d; }
 
 .dress-code {
   font-family: 'Cormorant SC', serif;
@@ -402,114 +402,172 @@ nav ul li a.active {
 .rsvp-illustration img { width: 100%; }
 
 .rsvp-form {
-  max-width: 550px;
+  max-width: 650px;
   margin: 0 auto;
   text-align: left;
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(8px);
-  padding: 2.5rem 2rem;
-  border: 1px solid rgba(196, 162, 101, 0.2);
-  border-radius: 4px;
 }
 
 .form-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
-.form-group label {
+.form-group > label {
   display: block;
   font-family: 'Cormorant SC', serif;
-  font-size: 0.95rem;
-  letter-spacing: 2.5px;
-  color: var(--dark);
-  margin-bottom: 0.6rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  color: #1e3448;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
 }
 
-.form-group input,
+.form-group input[type="text"],
+.form-group input[type="number"],
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 0.9rem 1rem;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  border: 1px solid rgba(196, 162, 101, 0.3);
-  background: rgba(255,255,255,0.6);
-  border-radius: 3px;
-  color: var(--dark);
-  transition: all 0.3s;
+  font-size: 1.1rem;
+  border: 1px solid #8a9fb0;
+  background: #a3b5c5;
+  color: #1e3448;
   outline: none;
+  transition: all 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(30, 52, 72, 0.4);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.1);
+  border-color: #2C5468;
+  background: #b3c3d1;
 }
 
-.form-group textarea { resize: vertical; min-height: 120px; }
-
-.radio-group {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
-.radio-group label {
+/* Radio oui/non classique */
+.radio-list {
+  margin-top: 0.3rem;
+}
+
+.radio-list label {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
+  gap: 0.6rem;
   font-family: 'Cormorant SC', serif;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  color: #1e3448;
   cursor: pointer;
-  font-weight: 500;
-  padding: 0.8rem 2.5rem;
-  border: 1px solid rgba(196, 162, 101, 0.3);
-  border-radius: 3px;
-  background: rgba(255,255,255,0.4);
+  padding: 0.35rem 0;
+  font-weight: 400;
+}
+
+.radio-list input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #2C5468;
+  cursor: pointer;
+}
+
+/* Guest entries */
+.guest-entries {
+  margin-top: 0.3rem;
+}
+
+.guest-entry {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+  align-items: center;
+}
+
+.guest-entry input {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  border: 1px solid #8a9fb0;
+  background: #a3b5c5;
+  color: #1e3448;
+  outline: none;
   transition: all 0.3s;
 }
 
-.radio-group label:hover {
-  border-color: var(--gold);
-  background: rgba(255,255,255,0.7);
+.guest-entry input::placeholder {
+  color: rgba(30, 52, 72, 0.4);
 }
 
-.radio-group input[type="radio"] {
-  display: none;
+.guest-entry input:focus {
+  border-color: #2C5468;
+  background: #b3c3d1;
 }
 
-.radio-group input[type="radio"]:checked + span,
-.radio-group label:has(input:checked) {
-  background: var(--blue);
-  color: #FFFFFF;
-  border-color: var(--blue);
+.guest-entry .remove-guest {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  color: #8a9fb0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+.guest-entry .remove-guest:hover {
+  color: #1e3448;
+}
+
+.add-guest-btn {
+  display: inline-block;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #2C5468;
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin-top: 0.3rem;
+}
+
+.add-guest-btn:hover {
+  color: #1e3448;
 }
 
 .submit-btn {
   width: 100%;
   font-family: 'Cormorant SC', serif;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--dark);
-  background: transparent;
-  border: 2px solid var(--gold);
-  padding: 1.2rem;
-  border-radius: 3px;
+  color: #FFFFFF;
+  background: #8a9fb0;
+  border: 1px solid #7a8f9f;
+  padding: 1.1rem;
   cursor: pointer;
-  transition: all 0.4s;
+  transition: all 0.3s;
   margin-top: 1.5rem;
 }
 
 .submit-btn:hover {
-  background: var(--gold);
-  color: #FFFFFF;
+  background: #2C5468;
+  border-color: #2C5468;
 }
 
 /* ============================================================
@@ -730,7 +788,7 @@ footer .footer-text {
 
   <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
 
-  <a href="#" class="save-date-btn">Save the date</a>
+  <a href="#" class="save-date-btn">Je bloque la date !</a>
 </section>
 
 <!-- ============================================================
@@ -756,7 +814,7 @@ footer .footer-text {
 
   <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
 
-  <a href="#" class="save-date-btn">Save the date</a>
+  <a href="#" class="save-date-btn">Je bloque la date !</a>
 </section>
 
 <!-- ============================================================
@@ -784,7 +842,7 @@ footer .footer-text {
 
   <a href="#" class="waze-link">M'y rendre avec Waze</a><br><br>
 
-  <a href="#" class="save-date-btn">Save the date</a>
+  <a href="#" class="save-date-btn">Je bloque la date !</a>
 </section>
 
 <!-- ============================================================
@@ -798,27 +856,29 @@ footer .footer-text {
   <h2 class="event-title">RSVP</h2>
 
   <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Merci pour votre réponse !');">
+
     <div class="form-group">
-      <label>Nom & Prénom</label>
-      <input type="text" placeholder="Votre nom complet" required>
+      <label>Noms et Prénoms</label>
+      <div class="guest-entries" id="guestEntries">
+        <div class="guest-entry">
+          <input type="text" name="guest_nom_1" placeholder="Nom" required>
+          <input type="text" name="guest_prenom_1" placeholder="Prénom" required>
+        </div>
+      </div>
+      <button type="button" class="add-guest-btn" onclick="addGuest()">+ Ajouter une personne</button>
     </div>
 
     <div class="form-group">
       <label>Assisteront à la réception</label>
-      <div class="radio-group">
-        <label><input type="radio" name="presence" value="oui" required>Avec plaisir</label>
-        <label><input type="radio" name="presence" value="non">Malheureusement non</label>
+      <div class="radio-list">
+        <label><input type="radio" name="presence" value="oui" required> Oui</label>
+        <label><input type="radio" name="presence" value="non"> Non</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label>Nombre de personne(s)</label>
-      <input type="number" min="1" max="10" placeholder="1">
-    </div>
-
-    <div class="form-group">
       <label>Message aux mariés</label>
-      <textarea placeholder="Un petit mot pour Leah & Ruben..."></textarea>
+      <textarea name="message" placeholder=""></textarea>
     </div>
 
     <button type="submit" class="submit-btn">Envoyer</button>
@@ -881,6 +941,21 @@ function toggleMusic() {
     btn.style.opacity = '1';
   }
   musicPlaying = !musicPlaying;
+}
+
+/* Add/remove guests */
+let guestCount = 1;
+function addGuest() {
+  guestCount++;
+  const entry = document.createElement('div');
+  entry.className = 'guest-entry';
+  entry.innerHTML = '<input type="text" name="guest_nom_' + guestCount + '" placeholder="Nom" required>' +
+    '<input type="text" name="guest_prenom_' + guestCount + '" placeholder="Prénom" required>' +
+    '<button type="button" class="remove-guest" onclick="removeGuest(this)">&times;</button>';
+  document.getElementById('guestEntries').appendChild(entry);
+}
+function removeGuest(btn) {
+  btn.parentElement.remove();
 }
 
 /* Mobile menu */

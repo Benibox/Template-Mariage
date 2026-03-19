@@ -5,41 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FFFFFF" id="themeColor">
 <title>Leah & Ruben — Mariage</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* === POLICES DU FAIRE-PART === */
-@font-face {
-  font-family: 'Sandwich';
-  src: url('fonts/IDYKVH+Sandwich.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root {
@@ -59,15 +26,11 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'AvenirNextCondensed', 'Josefin Sans', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   background: #FFFFFF;
   color: var(--dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 14px;
 }
 
 #texture-bg {
@@ -114,12 +77,12 @@ body {
 
 .enter-btn {
   margin-top: 2.5rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
-  font-weight: 500;
-  font-style: normal;
+  font-weight: 300;
+  font-style: italic;
   letter-spacing: 2px;
-  color: var(--dark);
+  color: var(--blue-dark);
   background: transparent;
   border: 1px solid var(--blue-light);
   padding: 0.9rem 2.8rem;
@@ -158,7 +121,7 @@ nav ul {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Cormorant SC', serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 3px;
@@ -207,7 +170,15 @@ nav ul li a.active {
 .event-section {
   padding: 5rem 2rem 6rem;
   text-align: center;
-  border-bottom: 1px solid rgba(91, 143, 168, 0.1);
+  border-bottom: 1px solid rgba(91, 143, 168, 0.08);
+}
+
+.event-section:nth-of-type(even) {
+  background: rgba(91, 143, 168, 0.04);
+}
+
+.event-section:nth-of-type(odd) {
+  background: #FFFFFF;
 }
 
 .event-illustration {
@@ -229,67 +200,65 @@ nav ul li a.active {
 }
 
 .event-title {
-  font-family: 'Sandwich', cursive;
-  font-size: 1.8rem;
-  font-weight: normal;
-  letter-spacing: 1px;
-  color: #C0392B;
-  margin-bottom: 1.5rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: var(--blue-dark);
+  margin-bottom: 2rem;
   text-transform: uppercase;
 }
 
 .event-intro {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
   color: var(--text);
-  line-height: 1.9;
-  margin-bottom: 2rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
   font-weight: 400;
 }
 
 .event-date {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.15rem;
-  font-weight: normal;
-  letter-spacing: 1.5px;
-  color: #C0392B;
-  margin-bottom: 0.2rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--dark);
+  margin-bottom: 0.3rem;
 }
 
 .event-time {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.2rem;
   color: var(--text);
-  letter-spacing: 1.5px;
-  margin-bottom: 1.2rem;
-  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
 }
 
 .event-venue {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
   color: var(--dark);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 .event-address {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.8rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1rem;
   color: var(--text-light);
-  letter-spacing: 1px;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .waze-link {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
   color: var(--blue-text);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -301,7 +270,7 @@ nav ul li a.active {
 
 .save-date-btn {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Cormorant SC', serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -319,18 +288,18 @@ nav ul li a.active {
 .save-date-btn:hover { background: #1e3d4d; }
 
 .dress-code {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
   color: var(--text);
   margin-bottom: 2rem;
   font-weight: 500;
 }
 
 .event-extra {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 1px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
   color: var(--text-light);
   font-style: italic;
   margin-bottom: 2rem;
@@ -365,53 +334,50 @@ nav ul li a.active {
 }
 
 .family-side .parent-names {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
   color: var(--text);
-  line-height: 2;
+  line-height: 1.8;
 }
 
 .family-side .parent-bold {
-  font-weight: 400;
+  font-weight: 600;
   color: var(--dark);
 }
 
 .fairepart-text {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-style: normal;
-  font-size: 0.85rem;
-  color: var(--text);
-  margin-bottom: 0.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
   line-height: 1.8;
-  font-weight: 400;
-  letter-spacing: 1px;
 }
 
 .fairepart-announce {
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.8;
-  font-weight: 500;
 }
 
 .fairepart-names {
-  font-family: 'Sandwich', cursive;
-  font-size: 2rem;
-  font-weight: normal;
-  letter-spacing: 2px;
-  color: #C0392B;
-  margin-bottom: 0.3rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
 }
 
 .fairepart-hebrew {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: var(--text-light);
-  margin-bottom: 1.5rem;
-  letter-spacing: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 3rem;
 }
 
 /* ============================================================
@@ -445,12 +411,12 @@ nav ul li a.active {
 
 .form-group > label {
   display: block;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
   color: #1e3448;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
 }
 
 .form-group input[type="text"],
@@ -458,9 +424,9 @@ nav ul li a.active {
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 0.7rem 0.8rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
+  padding: 0.9rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
   color: #1e3448;
@@ -495,9 +461,9 @@ nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
   color: #1e3448;
   cursor: pointer;
   padding: 0.35rem 0;
@@ -525,9 +491,9 @@ nav ul li a.active {
 
 .guest-entry input {
   flex: 1;
-  padding: 0.7rem 0.8rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.85rem;
+  padding: 0.9rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
   color: #1e3448;
@@ -565,7 +531,7 @@ nav ul li a.active {
 
 .add-guest-btn {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Cormorant SC', serif;
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: #2C5468;
@@ -583,10 +549,10 @@ nav ul li a.active {
 
 .submit-btn {
   width: 100%;
-  font-family: 'AvenirNextCondensed', sans-serif;
-  font-size: 0.75rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.95rem;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: #FFFFFF;
   background: #8a9fb0;
@@ -615,7 +581,7 @@ footer .footer-logo { width: 80px; margin: 0 auto 1rem; }
 footer .footer-logo img { width: 100%; opacity: 0.4; }
 
 footer .footer-text {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Cormorant SC', serif;
   font-size: 0.7rem;
   letter-spacing: 3px;
   color: var(--text-light);
@@ -683,10 +649,10 @@ footer .footer-text {
   .love-deco { display: none; }
   .alliances-deco { display: none; }
 
-  .event-title { font-size: 1.3rem; letter-spacing: 1px; }
-  .event-date { font-size: 1rem; }
-  .fairepart-families { gap: 2rem; }
-  .fairepart-names { font-size: 1.3rem; }
+  .event-title { font-size: 1.6rem; letter-spacing: 4px; }
+  .event-date { font-size: 1.2rem; }
+  .fairepart-families { gap: 3rem; }
+  .fairepart-names { font-size: 1.5rem; }
   .fairepart-hebrew { letter-spacing: 1.5rem; }
 }
 </style>
@@ -723,59 +689,55 @@ footer .footer-text {
 </nav>
 
 <!-- ============================================================
-     HOUPPA (FAIRE-PART PRINCIPAL)
+     BIENVENUE + FAIRE-PART
      ============================================================ -->
-<section id="houppa" class="event-section">
-  <div style="text-align:right;font-size:0.85rem;letter-spacing:1px;margin-bottom:0.5rem;">בס״ד</div>
+<section class="fairepart-section" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:400px;opacity:0.07;pointer-events:none;z-index:0;">
+    <img src="coeur.png" alt="" style="width:100%;">
+  </div>
+
+  <img src="colombe_love_transparent.webp" alt="Love" class="love-deco" style="position:absolute;left:2rem;top:2rem;width:220px;opacity:0.85;">
+
+  <div class="fairepart-header">
+    <div style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--blue-dark);margin-bottom:0.3rem;">Vous êtes invités au mariage de</div>
+    <div style="font-family:'Cormorant SC',serif;font-size:2.2rem;font-weight:600;letter-spacing:4px;color:var(--blue-dark);margin-bottom:1rem;">Leah & Ruben</div>
+    <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:0 auto 1.5rem;"></div>
+  </div>
 
   <div class="event-illustration" data-anim>
-    <img src="logo_love_transparent.webp" alt="Houppa" style="width:100%;max-width:250px;">
+    <img src="logo_love_transparent.webp" alt="Leah & Ruben" style="width:100%;max-width:250px;">
   </div>
 
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;max-width:650px;margin:1.5rem auto;text-align:center;">
-    <div style="flex:1;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
-      Julia Wallach<br>
-      Adriana et Lionel Wisner<br>
-      Dana et Cyril Belolo
+  <div class="fairepart-families">
+    <div class="family-side">
+      <div class="parent-names">
+        <span class="parent-bold">Julia Wallach</span><br>
+        <span class="parent-bold">Adriana et Lionel Wisner</span><br>
+        <span class="parent-bold">Dana et Cyril Belolo</span>
+      </div>
     </div>
-    <div style="flex:1;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
-      Éliette Tordjman<br>
-      Jocelyne Aboucaya<br>
-      Alain Aboucaya<br>
-      Aurelia Tordjman
+    <div class="family-side">
+      <div class="parent-names">
+        <span class="parent-bold">Éliette Tordjman</span><br>
+        <span class="parent-bold">Jocelyne Aboucaya</span><br>
+        <span class="parent-bold">Alain Aboucaya</span><br>
+        <span class="parent-bold">Aurelia Tordjman</span>
+      </div>
     </div>
   </div>
 
-  <div class="fairepart-text" style="margin-bottom:1rem;">
+  <div class="fairepart-announce">
     Ont la joie de vous faire part du mariage de
   </div>
 
-  <h2 class="event-title" style="font-size:2.2rem;margin-bottom:0.2rem;">Leah et Ruben</h2>
-  <div style="font-size:1.2rem;letter-spacing:2px;margin-bottom:1.5rem;">לאה&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ראובן</div>
-
-  <p class="event-intro">
-    Et vous prient de bien vouloir assister à la Houppa
-  </p>
-
-  <div class="event-date">Mercredi 22 Octobre 2025</div>
-  <div class="event-time">À 17 Heures</div>
-
-  <div class="event-venue">Bait Al Ayam</div>
-  <div class="event-address">Russlan ST1 - Yafo</div>
+  <div class="fairepart-names">Leah & Ruben</div>
+  <div class="fairepart-hebrew">לאה&nbsp;&nbsp;&nbsp;ראובן</div>
 
   <div class="fairepart-text" style="margin-top:1.5rem;">
-    La cérémonie sera suivie d'une réception
+    Et vous prient de bien vouloir assister à la Houppa
   </div>
 
-  <div style="display:flex;justify-content:space-between;max-width:650px;margin:2rem auto 0;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;">
-    <div>Leah : 06 11 61 39 33</div>
-    <div>Ruben : 06 17 23 50 53</div>
-  </div>
-
-  <br>
-  <a href="https://waze.com/ul?q=Bait+Al+Ayam+Russlan+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
-
-  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
+  <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:0 auto;"></div>
 </section>
 
 <!-- ============================================================
@@ -818,7 +780,9 @@ footer .footer-text {
 <!-- ============================================================
      WELCOME TO YAFO
      ============================================================ -->
-<section id="welcome" class="event-section">
+<section id="welcome" class="event-section" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-80px;top:15%;width:280px;opacity:0.04;pointer-events:none;z-index:0;">
+    <img src="welcome_transparent.webp" alt="" style="width:100%;">
   <div class="event-illustration" data-anim>
     <img src="welcome_transparent.webp" alt="Welcome to Yafo" style="width:100%;max-width:400px;">
   </div>
@@ -832,7 +796,7 @@ footer .footer-text {
     dans toute sa splendeur.
   </p>
 
-  <div style="font-family:'Caveat',cursive;font-size:1rem;color:var(--dark);margin-bottom:0.8rem;text-transform:none;">L'amour et la fête débutent ici !</div>
+  <div class="fairepart-text">L'amour et la fête débutent ici !</div>
 
   <div class="event-date">Lundi 20 Octobre 2025</div>
   <div class="event-time">À 19h00</div>
@@ -848,7 +812,9 @@ footer .footer-text {
 <!-- ============================================================
      BEACH PARTY
      ============================================================ -->
-<section id="beach" class="event-section">
+<section id="beach" class="event-section" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;left:-100px;top:-60px;width:350px;opacity:0.04;pointer-events:none;z-index:0;">
+    <img src="soleil_love_transparent.webp" alt="" style="width:100%;">
   <div class="event-illustration" data-anim>
     <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:450px;">
   </div>
@@ -874,13 +840,41 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
+<!-- ============================================================
+     HOUPPA
+     ============================================================ -->
+<section id="houppa" class="event-section">
+  <div class="event-illustration" data-anim>
+    <img src="logo_love_transparent.webp" alt="Houppa" style="width:100%;max-width:250px;">
+  </div>
+
+  <h2 class="event-title">Houppa</h2>
+
+  <p class="event-intro">
+    Et vous prient de bien vouloir assister à la Houppa
+  </p>
+
+  <div class="event-date">Mercredi 22 Octobre 2025</div>
+  <div class="event-time">À 17h00</div>
+
+  <div class="event-venue">Bait Al Ayam</div>
+  <div class="event-address">Russlan St 1, Yafo, Israël</div>
+
+  <div class="fairepart-text" style="margin-top:1.5rem;">
+    La cérémonie sera suivie d'une réception
+  </div>
+
+  <a href="https://waze.com/ul?q=Bait+Al+Ayam+Russlan+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
+</section>
 
 <!-- ============================================================
      RSVP
      ============================================================ -->
 <section id="rsvp" class="rsvp-section">
   <div class="event-illustration" data-anim>
-    <img src="rsvp_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
+    <img src="colombe_love_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
   </div>
 
   <h2 class="event-title">RSVP</h2>
@@ -930,7 +924,7 @@ footer .footer-text {
     pour profiter des meilleurs tarifs !
   </div>
 
-  <div style="margin-top:2rem;font-family:'AvenirNextCondensed',sans-serif;font-size:0.95rem;letter-spacing:1.5px;color:var(--text);font-weight:500;">
+  <div style="margin-top:2rem;font-family:'Cormorant SC',serif;font-size:0.95rem;letter-spacing:1.5px;color:var(--text);">
     Leah : 06 11 61 39 33 &nbsp;&nbsp;|&nbsp;&nbsp; Ruben : 06 17 23 50 53
   </div>
 </section>

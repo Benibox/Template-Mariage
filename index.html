@@ -230,9 +230,9 @@ nav ul li a.active {
 .event-date {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.15rem;
-  font-weight: normal;
+  font-weight: 700;
   letter-spacing: 1.5px;
-  color: #C0392B;
+  color: #2A2A2A;
   margin-bottom: 0.2rem;
 }
 
@@ -776,20 +776,29 @@ footer .footer-text {
     Ont la joie de vous faire part du mariage de
   </div>
 
-  <h2 class="event-title" style="font-size:2.2rem;margin-bottom:0.2rem;">Leah et Ruben</h2>
-  <div style="font-size:1.2rem;letter-spacing:2px;margin-bottom:1.5rem;">לאה&nbsp;&nbsp;ראובן</div>
+  <div style="display:flex;justify-content:center;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
+    <div style="text-align:center;">
+      <span class="event-title" style="font-size:2.2rem;">Leah</span>
+      <div style="font-size:1.2rem;letter-spacing:2px;">לאה</div>
+    </div>
+    <span class="event-title" style="font-size:2.2rem;">et</span>
+    <div style="text-align:center;">
+      <span class="event-title" style="font-size:2.2rem;">Ruben</span>
+      <div style="font-size:1.2rem;letter-spacing:2px;">ראובן</div>
+    </div>
+  </div>
 
   <p class="event-intro" style="font-weight:600;color:#2A2A2A;">
     Et vous prient de bien vouloir assister à la Houppa
   </p>
 
   <div class="event-date">Mercredi 22 Octobre 2025</div>
-  <div class="event-time" style="font-weight:600;color:#2A2A2A;">À 17 Heures</div>
+  <div class="event-time" style="font-weight:400;color:#2A2A2A;">À 17 Heures</div>
 
-  <div class="event-venue" style="font-weight:700;color:#2A2A2A;">Bait Al Ayam</div>
+  <div class="event-venue" style="font-weight:400;color:#2A2A2A;">Bait Al Ayam</div>
   <div class="event-address" style="color:#2A2A2A;">Russlan ST1 - Yafo</div>
 
-  <div class="fairepart-text" style="margin-top:1.5rem;font-weight:600;color:#2A2A2A;">
+  <div class="fairepart-text" style="margin-top:1.5rem;font-weight:400;color:#2A2A2A;">
     La cérémonie sera suivie d'une réception
   </div>
 
@@ -843,6 +852,38 @@ footer .footer-text {
 </section>
 
 <!-- ============================================================
+     BEACH PARTY
+     ============================================================ -->
+<section id="beach" class="event-section">
+  <div class="event-illustration" data-anim style="position:relative;display:inline-block;">
+    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
+    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#2A2A2A;letter-spacing:2px;">21.10.25</div>
+  </div>
+
+  <h2 class="event-title">Chill on the Beach</h2>
+
+  <p class="event-intro" style="font-weight:500;color:#2A2A2A;">
+    Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
+    entourés de ceux que nous aimons,<br>
+    c'est tout ce qui compte pour nous…
+  </p>
+
+  <p class="event-intro" style="font-weight:700;color:#2A2A2A;">
+    On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
+    sur la plage de Gazos à partir de 13 heures
+  </p>
+
+  <div class="event-extra" style="font-weight:400;color:#2A2A2A;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
+
+  <div class="event-venue" style="font-weight:400;color:#2A2A2A;">Gazoz Beach</div>
+  <div class="event-address" style="font-weight:400;color:#2A2A2A;">Tel Aviv-Yafo, 51</div>
+
+  <a href="https://waze.com/ul?q=Gazoz+Beach+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
+</section>
+
+<!-- ============================================================
      WELCOME TO YAFO
      ============================================================ -->
 <section id="welcome" class="event-section">
@@ -874,44 +915,13 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
-<!-- ============================================================
-     BEACH PARTY
-     ============================================================ -->
-<section id="beach" class="event-section">
-  <div class="event-illustration" data-anim>
-    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
-  </div>
-
-  <h2 class="event-title">Chill on the Beach</h2>
-
-  <p class="event-intro" style="font-weight:500;color:#2A2A2A;">
-    Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
-    entourés de ceux que nous aimons,<br>
-    c'est tout ce qui compte pour nous…
-  </p>
-
-  <p class="event-intro" style="font-weight:700;color:#C0392B;">
-    On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
-    sur la plage de Gazos à partir de 13 heures
-  </p>
-
-  <div class="event-venue" style="font-weight:700;color:#2A2A2A;">Gazoz Beach</div>
-  <div class="event-address" style="font-weight:600;color:#2A2A2A;">Tel Aviv-Yafo, 51</div>
-
-  <div class="event-extra" style="font-weight:600;color:#2A2A2A;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
-
-  <a href="https://waze.com/ul?q=Gazoz+Beach+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
-
-  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
-</section>
-
 
 <!-- ============================================================
      RSVP
      ============================================================ -->
 <section id="rsvp" class="rsvp-section">
   <div class="event-illustration" data-anim>
-    <img src="rsvp_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
+    <img src="colombe_love_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
   </div>
 
   <h2 class="event-title">RSVP</h2>

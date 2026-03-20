@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FFFFFF" id="themeColor">
 <title>Leah & Ruben — Mariage</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* === POLICES DU FAIRE-PART === */
 @font-face {
@@ -14,31 +14,8 @@
   font-weight: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'AvenirNextCondensed';
-  src: url('fonts/IDYKVH+AvenirNextCondensed-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* AvenirNextCondensed subset fonts are corrupted (empty glyphs).
+   Using Barlow Condensed from Google Fonts as a complete replacement. */
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -59,7 +36,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'AvenirNextCondensed', 'Josefin Sans', sans-serif;
+  font-family: 'Barlow Condensed', 'Josefin Sans', sans-serif;
   background: #FFFFFF;
   color: var(--dark);
   overflow-x: hidden;
@@ -116,7 +93,7 @@ body {
 
 .enter-btn {
   margin-top: 2.5rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   font-style: normal;
@@ -160,7 +137,7 @@ nav ul {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 3px;
@@ -241,7 +218,7 @@ nav ul li a.active {
 }
 
 .event-intro {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -260,7 +237,7 @@ nav ul li a.active {
 }
 
 .event-time {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   color: var(--text);
   letter-spacing: 1.5px;
@@ -269,7 +246,7 @@ nav ul li a.active {
 }
 
 .event-venue {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 1.5px;
@@ -278,7 +255,7 @@ nav ul li a.active {
 }
 
 .event-address {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.8rem;
   color: var(--text-light);
   letter-spacing: 1px;
@@ -289,7 +266,7 @@ nav ul li a.active {
 
 .waze-link {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
   color: var(--blue-text);
@@ -303,7 +280,7 @@ nav ul li a.active {
 
 .save-date-btn {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -321,7 +298,7 @@ nav ul li a.active {
 .save-date-btn:hover { background: #1e3d4d; }
 
 .dress-code {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -330,7 +307,7 @@ nav ul li a.active {
 }
 
 .event-extra {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 1px;
   color: var(--text-light);
@@ -367,7 +344,7 @@ nav ul li a.active {
 }
 
 .family-side .parent-names {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -380,7 +357,7 @@ nav ul li a.active {
 }
 
 .fairepart-text {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-style: normal;
   font-size: 0.85rem;
   color: var(--text);
@@ -391,7 +368,7 @@ nav ul li a.active {
 }
 
 .fairepart-announce {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -447,7 +424,7 @@ nav ul li a.active {
 
 .form-group > label {
   display: block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: #1e3448;
@@ -461,7 +438,7 @@ nav ul li a.active {
 .form-group select {
   width: 100%;
   padding: 0.7rem 0.8rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
@@ -497,7 +474,7 @@ nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
   color: #1e3448;
@@ -528,7 +505,7 @@ nav ul li a.active {
 .guest-entry input {
   flex: 1;
   padding: 0.7rem 0.8rem;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.85rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
@@ -567,7 +544,7 @@ nav ul li a.active {
 
 .add-guest-btn {
   display: inline-block;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: #2C5468;
@@ -585,7 +562,7 @@ nav ul li a.active {
 
 .submit-btn {
   width: 100%;
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -617,7 +594,7 @@ footer .footer-logo { width: 80px; margin: 0 auto 1rem; }
 footer .footer-logo img { width: 100%; opacity: 0.4; }
 
 footer .footer-text {
-  font-family: 'AvenirNextCondensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.7rem;
   letter-spacing: 3px;
   color: var(--text-light);
@@ -782,12 +759,12 @@ footer .footer-text {
   </div>
 
   <div style="display:flex;justify-content:space-between;align-items:flex-start;max-width:650px;margin:1.5rem auto;text-align:center;flex-wrap:wrap;gap:1rem;padding:0 0.5rem;">
-    <div style="flex:1;min-width:140px;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
+    <div style="flex:1;min-width:140px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
       Julia Wallach<br>
       Adriana et Lionel Wisner<br>
       Dana et Cyril Belolo
     </div>
-    <div style="flex:1;min-width:140px;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
+    <div style="flex:1;min-width:140px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;">
       Éliette Tordjman<br>
       Jocelyne Aboucaya<br>
       Alain Aboucaya<br>
@@ -816,7 +793,7 @@ footer .footer-text {
     La cérémonie sera suivie d'une réception
   </div>
 
-  <div style="display:flex;justify-content:space-between;max-width:650px;margin:2rem auto 0;font-family:'AvenirNextCondensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:wrap;gap:0.5rem;padding:0 0.5rem;">
+  <div style="display:flex;justify-content:space-between;max-width:650px;margin:2rem auto 0;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:wrap;gap:0.5rem;padding:0 0.5rem;">
     <div>Leah : 06 11 61 39 33</div>
     <div>Ruben : 06 17 23 50 53</div>
   </div>
@@ -979,7 +956,7 @@ footer .footer-text {
     pour profiter des meilleurs tarifs !
   </div>
 
-  <div style="margin-top:2rem;font-family:'AvenirNextCondensed',sans-serif;font-size:0.85rem;letter-spacing:1px;color:var(--text);font-weight:500;padding:0 0.5rem;">
+  <div style="margin-top:2rem;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:1px;color:var(--text);font-weight:500;padding:0 0.5rem;">
     Leah : 06 11 61 39 33 &nbsp;|&nbsp; Ruben : 06 17 23 50 53
   </div>
 </section>

@@ -997,6 +997,7 @@ function enterSite() {
   document.getElementById('themeColor').setAttribute('content', '#FFFFFF');
   setTimeout(() => { document.getElementById('home').style.display = 'none'; }, 600);
   const music = document.getElementById('bgMusic');
+  music.currentTime = 10;
   music.volume = 0.4;
   music.play();
   document.getElementById('musicBtn').classList.add('visible');

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FFFFFF" id="themeColor">
 <title>Leah & Ruben — Mariage</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* === POLICES DU FAIRE-PART === */
 @font-face {
@@ -14,8 +14,30 @@
   font-weight: normal;
   font-display: swap;
 }
-/* AvenirNextCondensed subset fonts are corrupted (empty glyphs).
-   Using Barlow Condensed from Google Fonts as a complete replacement. */
+@font-face {
+  font-family: 'Avenir Next Condensed';
+  src: url('fonts/AvenirNextCondensed-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next Condensed';
+  src: url('fonts/AvenirNextCondensed-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next Condensed';
+  src: url('fonts/AvenirNextCondensed-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next Condensed';
+  src: url('fonts/AvenirNextCondensed-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -28,15 +50,15 @@
   --gold: #C4A265;
   --cream: #F9F6F1;
   --paper: #F5F1EB;
-  --dark: #3A3A3A;
-  --text: #5A5A5A;
-  --text-light: #8A8A8A;
+  --dark: #000000;
+  --text: #000000;
+  --text-light: #000000;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Barlow Condensed', 'Josefin Sans', sans-serif;
+  font-family: 'Avenir Next Condensed', 'Josefin Sans', sans-serif;
   background: #FFFFFF;
   color: var(--dark);
   overflow-x: hidden;
@@ -93,7 +115,7 @@ body {
 
 .enter-btn {
   margin-top: 2.5rem;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   font-style: normal;
@@ -137,7 +159,7 @@ nav ul {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 3px;
@@ -218,7 +240,7 @@ nav ul li a.active {
 }
 
 .event-intro {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -237,7 +259,7 @@ nav ul li a.active {
 }
 
 .event-time {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   color: var(--text);
   letter-spacing: 1.5px;
@@ -246,7 +268,7 @@ nav ul li a.active {
 }
 
 .event-venue {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 1.5px;
@@ -255,7 +277,7 @@ nav ul li a.active {
 }
 
 .event-address {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.8rem;
   color: var(--text-light);
   letter-spacing: 1px;
@@ -266,7 +288,7 @@ nav ul li a.active {
 
 .waze-link {
   display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
   color: var(--blue-text);
@@ -280,7 +302,7 @@ nav ul li a.active {
 
 .save-date-btn {
   display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -298,7 +320,7 @@ nav ul li a.active {
 .save-date-btn:hover { background: #1e3d4d; }
 
 .dress-code {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -307,7 +329,7 @@ nav ul li a.active {
 }
 
 .event-extra {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 1px;
   color: var(--text-light);
@@ -344,7 +366,7 @@ nav ul li a.active {
 }
 
 .family-side .parent-names {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -357,7 +379,7 @@ nav ul li a.active {
 }
 
 .fairepart-text {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-style: normal;
   font-size: 0.85rem;
   color: var(--text);
@@ -368,7 +390,7 @@ nav ul li a.active {
 }
 
 .fairepart-announce {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   color: var(--text);
@@ -424,7 +446,7 @@ nav ul li a.active {
 
 .form-group > label {
   display: block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: #1e3448;
@@ -438,7 +460,7 @@ nav ul li a.active {
 .form-group select {
   width: 100%;
   padding: 0.7rem 0.8rem;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
@@ -474,7 +496,7 @@ nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
   color: #1e3448;
@@ -505,7 +527,7 @@ nav ul li a.active {
 .guest-entry input {
   flex: 1;
   padding: 0.7rem 0.8rem;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.85rem;
   border: 1px solid #8a9fb0;
   background: #a3b5c5;
@@ -544,7 +566,7 @@ nav ul li a.active {
 
 .add-guest-btn {
   display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: #2C5468;
@@ -562,7 +584,7 @@ nav ul li a.active {
 
 .submit-btn {
   width: 100%;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -594,7 +616,7 @@ footer .footer-logo { width: 80px; margin: 0 auto 1rem; }
 footer .footer-logo img { width: 100%; opacity: 0.4; }
 
 footer .footer-text {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Avenir Next Condensed', sans-serif;
   font-size: 0.7rem;
   letter-spacing: 3px;
   color: var(--text-light);
@@ -759,12 +781,12 @@ footer .footer-text {
   </div>
 
   <div style="display:flex;justify-content:space-between;align-items:flex-start;max-width:650px;margin:1.5rem auto;text-align:center;flex-wrap:wrap;gap:1rem;padding:0 0.5rem;">
-    <div style="flex:1;min-width:140px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;font-weight:700;color:#2A2A2A;">
+    <div style="flex:1;min-width:140px;font-family:'Avenir Next Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;font-weight:400;color:#000000;">
       Julia Wallach<br>
       Adriana et Lionel Wisner<br>
       Dana et Cyril Belolo
     </div>
-    <div style="flex:1;min-width:140px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;font-weight:700;color:#2A2A2A;">
+    <div style="flex:1;min-width:140px;font-family:'Avenir Next Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;line-height:1.8;font-weight:400;color:#000000;">
       Éliette Tordjman<br>
       Jocelyne Aboucaya<br>
       Alain Aboucaya<br>
@@ -772,37 +794,37 @@ footer .footer-text {
     </div>
   </div>
 
-  <div class="fairepart-text" style="margin-bottom:1rem;font-weight:600;color:#2A2A2A;">
+  <div class="fairepart-text" style="margin-bottom:1rem;font-weight:400;color:#000000;">
     Ont la joie de vous faire part du mariage de
   </div>
 
   <div style="display:flex;justify-content:center;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
     <div style="text-align:center;">
-      <span class="event-title" style="font-size:2.2rem;">Leah</span>
-      <div style="font-size:1.2rem;letter-spacing:2px;">לאה</div>
+      <span class="event-title" style="font-size:2.2rem;color:#C81718;">Leah</span>
+      <div style="font-size:1.2rem;letter-spacing:2px;color:#C81718;">לאה</div>
     </div>
-    <span class="event-title" style="font-size:2.2rem;">et</span>
+    <span class="event-title" style="font-size:2.2rem;color:#C81718;">et</span>
     <div style="text-align:center;">
-      <span class="event-title" style="font-size:2.2rem;">Ruben</span>
-      <div style="font-size:1.2rem;letter-spacing:2px;">ראובן</div>
+      <span class="event-title" style="font-size:2.2rem;color:#C81718;">Ruben</span>
+      <div style="font-size:1.2rem;letter-spacing:2px;color:#C81718;">ראובן</div>
     </div>
   </div>
 
-  <p class="event-intro" style="font-weight:600;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:600;color:#000000;">
     Et vous prient de bien vouloir assister à la Houppa
   </p>
 
   <div class="event-date">Mercredi 22 Octobre 2025</div>
-  <div class="event-time" style="font-weight:400;color:#2A2A2A;">À 17 Heures</div>
+  <div class="event-time" style="font-weight:400;color:#000000;">À 17 Heures</div>
 
-  <div class="event-venue" style="font-weight:400;color:#2A2A2A;">Bait Al Ayam</div>
-  <div class="event-address" style="color:#2A2A2A;">Russlan ST1 - Yafo</div>
+  <div class="event-venue" style="font-weight:400;color:#000000;">Bait Al Ayam</div>
+  <div class="event-address" style="color:#000000;">Russlan ST1 - Yafo</div>
 
-  <div class="fairepart-text" style="margin-top:1.5rem;font-weight:400;color:#2A2A2A;">
+  <div class="fairepart-text" style="margin-top:1.5rem;font-weight:400;color:#000000;">
     La cérémonie sera suivie d'une réception
   </div>
 
-  <div style="display:flex;justify-content:space-between;max-width:650px;margin:2rem auto 0;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:wrap;gap:0.5rem;padding:0 0.5rem;font-weight:600;color:#2A2A2A;">
+  <div style="display:flex;justify-content:space-between;max-width:650px;margin:2rem auto 0;font-family:'Avenir Next Condensed',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:wrap;gap:0.5rem;padding:0 0.5rem;font-weight:600;color:#000000;">
     <div>Leah : 06 11 61 39 33</div>
     <div>Ruben : 06 17 23 50 53</div>
   </div>
@@ -821,29 +843,29 @@ footer .footer-text {
     <img src="collage_love_transparent.webp" alt="Mairie" style="width:100%;max-width:400px;">
   </div>
 
-  <h2 class="event-title">Oui... à Paris !</h2>
+  <h2 class="event-title" style="color:#EB0057;">Oui... à Paris !</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:600;color:#000000;">
     Leah et Ruben se diront « oui »
   </p>
 
-  <div class="event-date" style="font-weight:700;color:#2A2A2A;">Le Jeudi 11 Septembre 2025 À 15h30</div>
+  <div class="event-date" style="font-weight:700;color:#000000;">Le Jeudi 11 Septembre 2025 À 15h30</div>
 
-  <div class="event-venue" style="font-weight:700;color:#2A2A2A;">Mairie de Neuilly-sur-Seine</div>
-  <div class="event-address" style="font-weight:600;color:#2A2A2A;">96 Avenue Achille Peretti</div>
+  <div class="event-venue" style="font-weight:700;color:#000000;">Mairie de Neuilly-sur-Seine</div>
+  <div class="event-address" style="font-weight:600;color:#000000;">96 Avenue Achille Peretti</div>
 
   <a href="https://waze.com/ul?q=96+Avenue+Achille+Peretti+92200+Neuilly-sur-Seine&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
 
   <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:1.5rem auto;"></div>
 
-  <h2 class="event-title" style="font-size:1.8rem;">After Mairie</h2>
+  <h2 class="event-title" style="font-size:1.8rem;color:#EB0057;">After Mairie</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:600;color:#000000;">
     On se retrouve chez Dana & Cyril
   </p>
 
-  <div class="event-venue" style="font-weight:700;color:#2A2A2A;">52 Boulevard d'Inkermann - 92200 Neuilly-sur-Seine</div>
-  <div class="event-address" style="font-weight:600;color:#2A2A2A;">Code A2258 Bât1 - Interphone Belolo<br>5ème étage</div>
+  <div class="event-venue" style="font-weight:700;color:#000000;">52 Boulevard d'Inkermann - 92200 Neuilly-sur-Seine</div>
+  <div class="event-address" style="font-weight:600;color:#000000;">Code A2258 Bât1 - Interphone Belolo<br>5ème étage</div>
 
   <a href="https://waze.com/ul?q=52+Boulevard+d+Inkermann+92200+Neuilly-sur-Seine&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
 
@@ -857,26 +879,26 @@ footer .footer-text {
 <section id="beach" class="event-section">
   <div class="event-illustration" data-anim style="position:relative;display:inline-block;">
     <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
-    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#2A2A2A;letter-spacing:2px;">21.10.25</div>
+    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
   </div>
 
-  <h2 class="event-title">Chill on the Beach</h2>
+  <h2 class="event-title" style="color:#EE3C11;">Chill on the Beach</h2>
 
-  <p class="event-intro" style="font-weight:500;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:500;color:#000000;">
     Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
     entourés de ceux que nous aimons,<br>
     c'est tout ce qui compte pour nous…
   </p>
 
-  <p class="event-intro" style="font-weight:700;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:700;color:#000000;">
     On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
     sur la plage de Gazos à partir de 13 heures
   </p>
 
-  <div class="event-extra" style="font-weight:400;color:#2A2A2A;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
+  <div class="event-extra" style="font-weight:400;color:#000000;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
 
-  <div class="event-venue" style="font-weight:400;color:#2A2A2A;">Gazoz Beach</div>
-  <div class="event-address" style="font-weight:400;color:#2A2A2A;">Tel Aviv-Yafo, 51</div>
+  <div class="event-venue" style="font-weight:400;color:#000000;">Gazoz Beach</div>
+  <div class="event-address" style="font-weight:400;color:#000000;">Tel Aviv-Yafo, 51</div>
 
   <a href="https://waze.com/ul?q=Gazoz+Beach+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
 
@@ -891,14 +913,14 @@ footer .footer-text {
     <img src="welcome_transparent.webp" alt="Welcome to Yafo" style="width:100%;max-width:400px;">
   </div>
 
-  <h2 class="event-title">Welcome to Yafo</h2>
+  <h2 class="event-title" style="color:#37AB99;">Welcome to Yafo</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:600;color:#000000;">
     Lundi 20 Octobre 2025 à 19 heures,<br>
     les festivités commencent !
   </p>
 
-  <p class="event-intro" style="font-weight:500;color:#2A2A2A;">
+  <p class="event-intro" style="font-weight:500;color:#000000;">
     Avant le grand jour, laissez-vous porter par l'ambiance !<br>
     Nous avons hate de vous retrouver pour une soirée enflammée,<br>
     ambiance orientale, en attendant de célébrer l'amour<br>
@@ -907,8 +929,8 @@ footer .footer-text {
 
   <div style="font-family:'Caveat',cursive;font-size:1rem;color:#C0392B;margin-bottom:0.8rem;text-transform:none;">L'amour et la fete debutent ici !</div>
 
-  <div class="event-venue" style="font-weight:700;color:#2A2A2A;">NOOR</div>
-  <div class="event-address" style="font-weight:600;color:#2A2A2A;">Pinkhas Ben Ya'ir St 5, Tel Aviv-Yafo, Israël</div>
+  <div class="event-venue" style="font-weight:700;color:#000000;">NOOR</div>
+  <div class="event-address" style="font-weight:600;color:#000000;">Pinkhas Ben Ya'ir St 5, Tel Aviv-Yafo, Israël</div>
 
   <a href="https://waze.com/ul?q=Noor+Pinkhas+Ben+Yair+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
 
@@ -959,19 +981,19 @@ footer .footer-text {
 
   <h2 class="event-title" style="font-size:1.8rem;margin-bottom:1.5rem;">Informations</h2>
 
-  <div class="event-address" style="max-width:600px;margin:0 auto;line-height:2;color:#2A2A2A;font-weight:500;">
+  <div class="event-address" style="max-width:600px;margin:0 auto;line-height:2;color:#000000;font-weight:500;">
     Des tarifs préférentiels ont été négociés<br>
     auprès de l'hôtel <strong>Alberto Isrotel Design</strong>.<br>
     Utilisez le code <strong>RUB&amp;LEAH</strong> lors de votre réservation.<br>
     contact : aviramm@isrotel.co.il
   </div>
 
-  <div class="event-extra" style="margin-top:2rem;font-size:0.95rem;color:#2A2A2A;font-weight:600;font-style:normal;">
+  <div class="event-extra" style="margin-top:2rem;font-size:0.95rem;color:#000000;font-weight:600;font-style:normal;">
     Pensez à réserver vos billets d'avion dès maintenant<br>
     pour profiter des meilleurs tarifs !
   </div>
 
-  <div style="margin-top:2rem;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:1px;color:#2A2A2A;font-weight:600;padding:0 0.5rem;">
+  <div style="margin-top:2rem;font-family:'Avenir Next Condensed',sans-serif;font-size:0.85rem;letter-spacing:1px;color:#000000;font-weight:600;padding:0 0.5rem;">
     Leah : 06 11 61 39 33 &nbsp;|&nbsp; Ruben : 06 17 23 50 53
   </div>
 </section>
@@ -1012,7 +1034,7 @@ function enterSite() {
   document.getElementById('themeColor').setAttribute('content', '#FFFFFF');
   setTimeout(() => { document.getElementById('home').style.display = 'none'; }, 600);
   const music = document.getElementById('bgMusic');
-  music.currentTime = 10;
+  music.currentTime = 0;
   music.volume = 0.4;
   music.play();
   document.getElementById('musicBtn').classList.add('visible');

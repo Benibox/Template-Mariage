@@ -59,7 +59,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Avenir Next Condensed', 'Josefin Sans', sans-serif;
-  background: #FFFFFF;
+  background: #F0EAE0;
   color: var(--dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -70,7 +70,80 @@ body {
 }
 
 #texture-bg {
-  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ============================================================
+   FLOATING LOVE WORDS — FILIGRANE
+   ============================================================ */
+.love-words-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.love-word {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  text-transform: none;
+  opacity: 0.04;
+  color: #C0392B;
+  white-space: nowrap;
+  animation: floatWord 30s ease-in-out infinite alternate;
+}
+
+.love-word:nth-child(even) {
+  font-family: 'Sandwich', cursive;
+  color: #2C5468;
+}
+
+.love-word:nth-child(3n) {
+  color: #EE3C11;
+}
+
+.love-word:nth-child(5n) {
+  color: #37AB99;
+}
+
+@keyframes floatWord {
+  0%   { transform: translateY(0px) rotate(var(--rot)); }
+  100% { transform: translateY(-20px) rotate(var(--rot)); }
+}
+
+/* ============================================================
+   SECTION TINTS — ALTERNANCE DE TEINTES
+   ============================================================ */
+.event-section, .rsvp-section, .fairepart-section {
+  position: relative;
+  background: transparent;
+}
+
+#mairie { background: rgba(255,255,255,0.88); }
+#welcome { background: rgba(55, 171, 153, 0.04); }
+#beach { background: rgba(238, 60, 17, 0.03); }
+#houppa { background: rgba(255,255,255,0.92); }
+#rsvp { background: rgba(44, 84, 104, 0.04); }
+
+/* ============================================================
+   SECTION SEPARATORS — DECORATIFS
+   ============================================================ */
+.section-sep {
+  text-align: center;
+  padding: 0.8rem 0;
+  font-size: 1.4rem;
+  letter-spacing: 1.2rem;
+  opacity: 0.2;
+  color: #C0392B;
+  background: transparent;
+  line-height: 1;
+  user-select: none;
 }
 
 /* ============================================================
@@ -208,7 +281,7 @@ nav ul li a.active {
 .event-section {
   padding: 5rem 2rem 6rem;
   text-align: center;
-  border-bottom: 1px solid rgba(91, 143, 168, 0.1);
+  border-bottom: none;
 }
 
 .event-illustration {
@@ -344,7 +417,7 @@ nav ul li a.active {
   padding: 5rem 2rem;
   text-align: center;
   background: transparent;
-  border-bottom: 1px solid rgba(91, 143, 168, 0.1);
+  border-bottom: none;
 }
 
 .fairepart-rings {
@@ -743,6 +816,9 @@ footer .footer-text {
 
 <canvas id="texture-bg"></canvas>
 
+<!-- FLOATING LOVE WORDS FILIGRANE -->
+<div class="love-words-layer" id="loveWordsLayer"></div>
+
 <audio id="bgMusic" loop preload="auto">
   <source src="NuevaYol.mp3" type="audio/mpeg">
 </audio>
@@ -765,13 +841,12 @@ footer .footer-text {
     <li><a href="#mairie">Mairie</a></li>
     <li><a href="#welcome">Welcome</a></li>
     <li><a href="#beach">Beach</a></li>
-    <li><a href="#houppa">Houppa</a></li>
     <li><a href="#rsvp">RSVP</a></li>
   </ul>
 </nav>
 
 <!-- ============================================================
-     HOUPPA (FAIRE-PART PRINCIPAL)
+     HOUPPA (FAIRE-PART PRINCIPAL — HOMEPAGE)
      ============================================================ -->
 <section id="houppa" class="event-section">
   <div style="text-align:right;font-size:0.85rem;letter-spacing:1px;margin-bottom:0.5rem;">בס״ד</div>
@@ -835,6 +910,8 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
+<div class="section-sep">&#10084; &#10084; &#10084;</div>
+
 <!-- ============================================================
      MAIRIE
      ============================================================ -->
@@ -873,37 +950,7 @@ footer .footer-text {
 
 </section>
 
-<!-- ============================================================
-     BEACH PARTY
-     ============================================================ -->
-<section id="beach" class="event-section">
-  <div class="event-illustration" data-anim style="position:relative;display:inline-block;">
-    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
-    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
-  </div>
-
-  <h2 class="event-title" style="color:#EE3C11;">Chill on the Beach</h2>
-
-  <p class="event-intro" style="font-weight:500;color:#000000;">
-    Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
-    entourés de ceux que nous aimons,<br>
-    c'est tout ce qui compte pour nous…
-  </p>
-
-  <p class="event-intro" style="font-weight:700;color:#000000;">
-    On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
-    sur la plage de Gazos à partir de 13 heures
-  </p>
-
-  <div class="event-extra" style="font-weight:400;color:#000000;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
-
-  <div class="event-venue" style="font-weight:400;color:#000000;">Gazoz Beach</div>
-  <div class="event-address" style="font-weight:400;color:#000000;">Tel Aviv-Yafo, 51</div>
-
-  <a href="https://waze.com/ul?q=Gazoz+Beach+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
-
-  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
-</section>
+<div class="section-sep">&#10084; &#10084; &#10084;</div>
 
 <!-- ============================================================
      WELCOME TO YAFO
@@ -937,6 +984,39 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
+<div class="section-sep">&#10047; &#10047; &#10047;</div>
+
+<!-- ============================================================
+     BEACH PARTY
+     ============================================================ -->
+<section id="beach" class="event-section">
+  <div class="event-illustration" data-anim style="position:relative;display:inline-block;">
+    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
+    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
+  </div>
+
+  <h2 class="event-title" style="color:#EE3C11;">Chill on the Beach</h2>
+
+  <p class="event-intro" style="font-weight:500;color:#000000;">
+    Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
+    entourés de ceux que nous aimons,<br>
+    c'est tout ce qui compte pour nous…
+  </p>
+
+  <p class="event-intro" style="font-weight:700;color:#000000;">
+    On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
+    sur la plage de Gazos à partir de 13 heures
+  </p>
+
+  <div class="event-extra" style="font-weight:400;color:#000000;font-style:normal;">Ambiance chill et bonnes vibes only !</div>
+
+  <div class="event-venue" style="font-weight:400;color:#000000;">Gazoz Beach</div>
+  <div class="event-address" style="font-weight:400;color:#000000;">Tel Aviv-Yafo, 51</div>
+
+  <a href="https://waze.com/ul?q=Gazoz+Beach+Tel+Aviv+Yafo&navigate=yes" target="_blank" class="waze-link">M'y rendre avec Waze</a><br><br>
+
+  <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
+</section>
 
 <!-- ============================================================
      RSVP
@@ -1139,6 +1219,33 @@ function renderBg() {
 renderBg();
 let _t;
 window.addEventListener('resize', () => { clearTimeout(_t); _t = setTimeout(renderBg, 200); });
+
+/* ═══ FLOATING LOVE WORDS ═══ */
+(function() {
+  const words = [
+    'LOVE','L&R','YES','BONHEUR','AMOUR','FIESTA','KIFF',
+    'SUN','CHIHADE','LEAH','RUBEN','YES TO LOVE',
+    '\u2764','LOVE','L&R','AMOUR','YES','BONHEUR',
+    'FIESTA','SUN','KIFF','LOVE','\u2764','L&R'
+  ];
+  const layer = document.getElementById('loveWordsLayer');
+  const count = 35;
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.className = 'love-word';
+    el.textContent = words[i % words.length];
+    const size = 0.9 + Math.random() * 2.2;
+    const rot = -25 + Math.random() * 50;
+    el.style.cssText =
+      'left:' + (Math.random() * 100) + '%;' +
+      'top:' + (Math.random() * 100) + '%;' +
+      'font-size:' + size + 'rem;' +
+      '--rot:' + rot + 'deg;' +
+      'animation-delay:' + (-Math.random() * 30) + 's;' +
+      'animation-duration:' + (20 + Math.random() * 20) + 's;';
+    layer.appendChild(el);
+  }
+})();
 </script>
 
 </body>

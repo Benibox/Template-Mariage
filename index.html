@@ -93,10 +93,20 @@ body {
   position: absolute;
   font-family: 'Caveat', cursive;
   text-transform: none;
-  opacity: 0.04;
+  opacity: 0.10;
   color: #C0392B;
   white-space: nowrap;
-  animation: floatWord 30s ease-in-out infinite alternate;
+  animation: floatWord 20s ease-in-out infinite alternate, driftX 25s ease-in-out infinite alternate;
+  transition: opacity 0.3s;
+}
+
+.love-word:nth-child(4n) {
+  animation: floatWord 15s ease-in-out infinite alternate, driftX 30s ease-in-out infinite alternate-reverse;
+}
+
+.love-word:nth-child(7n) {
+  opacity: 0.14;
+  animation: floatWord 25s ease-in-out infinite alternate, pulse 8s ease-in-out infinite;
 }
 
 .love-word:nth-child(even) {
@@ -114,7 +124,169 @@ body {
 
 @keyframes floatWord {
   0%   { transform: translateY(0px) rotate(var(--rot)); }
-  100% { transform: translateY(-20px) rotate(var(--rot)); }
+  100% { transform: translateY(-40px) rotate(var(--rot)); }
+}
+
+@keyframes driftX {
+  0%   { margin-left: 0; }
+  100% { margin-left: 30px; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.08; }
+  50%      { opacity: 0.16; }
+}
+
+/* ============================================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger > *:nth-child(1) { transition-delay: 0s; }
+.stagger > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger > *:nth-child(6) { transition-delay: 0.5s; }
+.stagger > *:nth-child(7) { transition-delay: 0.6s; }
+.stagger > *:nth-child(8) { transition-delay: 0.7s; }
+
+/* ============================================================
+   EVENT TITLE ANIMATED UNDERLINE
+   ============================================================ */
+.event-title {
+  position: relative;
+  display: inline-block;
+}
+
+.event-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.event-title.visible::after {
+  width: 60%;
+  left: 20%;
+}
+
+/* ============================================================
+   BUTTON HOVER ANIMATIONS
+   ============================================================ */
+.save-date-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.save-date-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.save-date-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.save-date-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 84, 104, 0.3);
+}
+
+/* ============================================================
+   SEPARATOR ANIMATION
+   ============================================================ */
+.section-sep {
+  transition: letter-spacing 0.8s ease, opacity 0.8s ease;
+}
+
+.section-sep.visible {
+  animation: sepPulse 3s ease-in-out infinite;
+}
+
+@keyframes sepPulse {
+  0%, 100% { letter-spacing: 1.2rem; opacity: 0.2; }
+  50%      { letter-spacing: 1.8rem; opacity: 0.35; }
+}
+
+/* ============================================================
+   FLOATING HEARTS — DECORATIVE PARTICLES
+   ============================================================ */
+.heart-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  font-size: 1rem;
+  opacity: 0;
+  animation: heartFloat 6s ease-in forwards;
+}
+
+@keyframes heartFloat {
+  0%   { opacity: 0; transform: translateY(0) scale(0.5) rotate(0deg); }
+  15%  { opacity: 0.6; }
+  85%  { opacity: 0.4; }
+  100% { opacity: 0; transform: translateY(-100vh) scale(1) rotate(45deg); }
 }
 
 /* ============================================================
@@ -125,11 +297,11 @@ body {
   background: transparent;
 }
 
-#mairie { background: rgba(255,255,255,0.88); }
-#welcome { background: rgba(55, 171, 153, 0.04); }
-#beach { background: rgba(238, 60, 17, 0.03); }
-#houppa { background: rgba(255,255,255,0.92); }
-#rsvp { background: rgba(44, 84, 104, 0.04); }
+#mairie { background: rgba(235, 0, 87, 0.05); }
+#welcome { background: rgba(55, 171, 153, 0.06); }
+#beach { background: rgba(238, 60, 17, 0.05); }
+#houppa { background: rgba(200, 23, 24, 0.05); }
+#rsvp { background: rgba(44, 84, 104, 0.06); }
 
 /* ============================================================
    SECTION SEPARATORS — DECORATIFS
@@ -885,7 +1057,7 @@ footer .footer-text {
     </div>
   </div>
 
-  <p class="event-intro" style="font-weight:600;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:600;color:#000000;">
     Et vous prient de bien vouloir assister à la Houppa
   </p>
 
@@ -910,7 +1082,7 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
-<div class="section-sep">&#10084; &#10084; &#10084;</div>
+<div class="section-sep reveal">&#10084; &#10084; &#10084;</div>
 
 <!-- ============================================================
      MAIRIE
@@ -920,9 +1092,9 @@ footer .footer-text {
     <img src="collage_love_transparent.webp" alt="Mairie" style="width:100%;max-width:400px;">
   </div>
 
-  <h2 class="event-title" style="font-size:1.8rem;color:#EB0057;">Oui... A Paris !</h2>
+  <h2 class="event-title reveal" style="font-size:1.8rem;color:#EB0057;">Oui... A Paris !</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:600;color:#000000;">
     Leah et Ruben se diront « oui »
   </p>
 
@@ -935,9 +1107,9 @@ footer .footer-text {
 
   <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:1.5rem auto;"></div>
 
-  <h2 class="event-title" style="font-size:1.8rem;color:#EB0057;">After Mairie</h2>
+  <h2 class="event-title reveal" style="font-size:1.8rem;color:#EB0057;">After Mairie</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:600;color:#000000;">
     On se retrouve chez Dana & Cyril
   </p>
 
@@ -950,7 +1122,7 @@ footer .footer-text {
 
 </section>
 
-<div class="section-sep">&#10084; &#10084; &#10084;</div>
+<div class="section-sep reveal">&#10084; &#10084; &#10084;</div>
 
 <!-- ============================================================
      WELCOME TO YAFO
@@ -960,14 +1132,14 @@ footer .footer-text {
     <img src="welcome_transparent.webp" alt="Welcome to Yafo" style="width:100%;max-width:400px;">
   </div>
 
-  <h2 class="event-title" style="color:#37AB99;">Welcome to Yafo</h2>
+  <h2 class="event-title reveal" style="color:#37AB99;">Welcome to Yafo</h2>
 
-  <p class="event-intro" style="font-weight:600;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:600;color:#000000;">
     Lundi 20 Octobre 2025 à 19 heures,<br>
     les festivités commencent !
   </p>
 
-  <p class="event-intro" style="font-weight:500;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:500;color:#000000;">
     Avant le grand jour, laissez-vous porter par l'ambiance !<br>
     Nous avons hate de vous retrouver pour une soirée enflammée,<br>
     ambiance orientale, en attendant de célébrer l'amour<br>
@@ -984,7 +1156,7 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
-<div class="section-sep">&#10047; &#10047; &#10047;</div>
+<div class="section-sep reveal">&#10047; &#10047; &#10047;</div>
 
 <!-- ============================================================
      BEACH PARTY
@@ -995,15 +1167,15 @@ footer .footer-text {
     <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
   </div>
 
-  <h2 class="event-title" style="color:#EE3C11;">Chill on the Beach</h2>
+  <h2 class="event-title reveal" style="color:#EE3C11;">Chill on the Beach</h2>
 
-  <p class="event-intro" style="font-weight:500;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:500;color:#000000;">
     Parce qu'une fête sous le soleil, les pieds dans le sable,<br>
     entourés de ceux que nous aimons,<br>
     c'est tout ce qui compte pour nous…
   </p>
 
-  <p class="event-intro" style="font-weight:700;color:#000000;">
+  <p class="event-intro reveal" style="font-weight:700;color:#000000;">
     On vous donne rendez-vous le Mardi 21 Octobre 2025<br>
     sur la plage de Gazos à partir de 13 heures
   </p>
@@ -1026,7 +1198,7 @@ footer .footer-text {
     <img src="colombe_love_transparent.webp" alt="RSVP" style="width:100%;max-width:350px;">
   </div>
 
-  <h2 class="event-title">RSVP</h2>
+  <h2 class="event-title reveal">RSVP</h2>
 
   <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Merci pour votre réponse !');">
 
@@ -1059,7 +1231,7 @@ footer .footer-text {
 
   <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:3rem auto 2rem;"></div>
 
-  <h2 class="event-title" style="font-size:1.8rem;margin-bottom:1.5rem;">Informations</h2>
+  <h2 class="event-title reveal" style="font-size:1.8rem;margin-bottom:1.5rem;">Informations</h2>
 
   <div class="event-address" style="max-width:600px;margin:0 auto;line-height:2;color:#000000;font-weight:500;">
     Des tarifs préférentiels ont été négociés<br>
@@ -1093,9 +1265,9 @@ footer .footer-text {
 /* Scroll animations */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+document.querySelectorAll('[data-anim], .reveal, .reveal-left, .reveal-right, .reveal-scale, .event-title, .section-sep').forEach(el => observer.observe(el));
 
 /* Active nav */
 window.addEventListener('scroll', () => {
@@ -1229,7 +1401,7 @@ window.addEventListener('resize', () => { clearTimeout(_t); _t = setTimeout(rend
     'FIESTA','SUN','KIFF','LOVE','\u2764','L&R'
   ];
   const layer = document.getElementById('loveWordsLayer');
-  const count = 35;
+  const count = 55;
   for (let i = 0; i < count; i++) {
     const el = document.createElement('span');
     el.className = 'love-word';
@@ -1245,6 +1417,53 @@ window.addEventListener('resize', () => { clearTimeout(_t); _t = setTimeout(rend
       'animation-duration:' + (20 + Math.random() * 20) + 's;';
     layer.appendChild(el);
   }
+})();
+
+/* ═══ PARALLAX EFFECT ON LOVE WORDS ═══ */
+(function() {
+  const layer = document.getElementById('loveWordsLayer');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        layer.style.transform = 'translateY(' + (scrollY * 0.08) + 'px)';
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ═══ FLOATING HEART PARTICLES ON SCROLL ═══ */
+(function() {
+  const hearts = ['\u2764', '\u2661', '\u2665', '\u2763'];
+  let lastScroll = 0;
+  let particleCount = 0;
+  const maxParticles = 15;
+
+  window.addEventListener('scroll', () => {
+    const scrollDelta = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+
+    if (scrollDelta > 60 && particleCount < maxParticles && Math.random() > 0.6) {
+      const heart = document.createElement('span');
+      heart.className = 'heart-particle';
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = (10 + Math.random() * 80) + 'vw';
+      heart.style.top = (window.scrollY + window.innerHeight * 0.7 + Math.random() * window.innerHeight * 0.3) + 'px';
+      heart.style.fontSize = (0.8 + Math.random() * 1) + 'rem';
+      heart.style.color = ['#C0392B', '#EE3C11', '#37AB99', '#2C5468'][Math.floor(Math.random() * 4)];
+      heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+      document.body.appendChild(heart);
+      particleCount++;
+
+      heart.addEventListener('animationend', () => {
+        heart.remove();
+        particleCount--;
+      });
+    }
+  }, { passive: true });
 })();
 </script>
 

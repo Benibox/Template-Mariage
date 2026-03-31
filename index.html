@@ -59,7 +59,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Avenir Next Condensed', 'Josefin Sans', sans-serif;
-  background: #F0EAE0;
+  background: #FAF8F5;
   color: var(--dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -69,24 +69,26 @@ body {
   font-size: 14px;
 }
 
-#texture-bg {
+body::before {
+  content: '';
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.15'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+#texture-bg {
+  display: none;
 }
 
 /* ============================================================
    FLOATING LOVE WORDS — FILIGRANE
    ============================================================ */
 .love-words-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
+  display: none;
 }
 
 .love-word {
@@ -274,12 +276,7 @@ h2.event-title.visible::after {
    FLOATING HEARTS — DECORATIVE PARTICLES
    ============================================================ */
 .heart-particle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 0;
-  font-size: 1rem;
-  opacity: 0;
-  animation: heartFloat 6s ease-in forwards;
+  display: none;
 }
 
 @keyframes heartFloat {
@@ -297,21 +294,21 @@ h2.event-title.visible::after {
   background: transparent;
 }
 
-#mairie { background: rgba(235, 0, 87, 0.05); }
-#welcome { background: rgba(55, 171, 153, 0.06); }
-#beach { background: rgba(238, 60, 17, 0.05); }
-#houppa { background: rgba(200, 23, 24, 0.05); }
-#rsvp { background: rgba(44, 84, 104, 0.06); }
+#mairie { background: transparent; }
+#welcome { background: transparent; }
+#beach { background: transparent; }
+#houppa { background: transparent; }
+#rsvp { background: transparent; }
 
 /* ============================================================
    SECTION SEPARATORS — DECORATIFS
    ============================================================ */
 .section-sep {
   text-align: center;
-  padding: 0.8rem 0;
-  font-size: 1.4rem;
+  padding: 1.5rem 0;
+  font-size: 1.2rem;
   letter-spacing: 1.2rem;
-  opacity: 0.2;
+  opacity: 0.15;
   color: #C0392B;
   background: transparent;
   line-height: 1;
@@ -326,7 +323,7 @@ h2.event-title.visible::after {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #FFFFFF;
+  background: #FAF8F5;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 9999;
@@ -451,9 +448,14 @@ nav ul li a.active {
    SECTION EVENEMENT
    ============================================================ */
 .event-section {
-  padding: 5rem 2rem 6rem;
+  padding: 4rem 2rem 5rem;
   text-align: center;
   border-bottom: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .event-illustration {
@@ -664,8 +666,9 @@ nav ul li a.active {
    RSVP
    ============================================================ */
 .rsvp-section {
-  padding: 5rem 2rem 6rem;
+  padding: 4rem 2rem 5rem;
   text-align: center;
+  min-height: 100vh;
 }
 
 .rsvp-section .event-title {
@@ -1105,8 +1108,8 @@ footer .footer-text {
      MAIRIE
      ============================================================ -->
 <section id="mairie" class="event-section" style="position:relative;overflow:hidden;">
-  <div class="event-illustration" data-anim>
-    <img src="collage_love_transparent.webp" alt="Mairie" style="width:100%;max-width:400px;">
+  <div class="event-illustration" data-anim style="overflow:hidden;max-width:400px;margin:0 auto 2.5rem;">
+    <img src="collage_love_transparent.webp" alt="Mairie" style="width:100%;margin-top:-8%;">
   </div>
 
   <h2 class="event-title reveal" style="font-size:1.8rem;color:#EB0057;">Oui... A Paris !</h2>
@@ -1124,7 +1127,7 @@ footer .footer-text {
 
   <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,var(--blue-light),transparent);margin:1.5rem auto;"></div>
 
-  <h2 class="event-title reveal" style="font-size:1.8rem;color:#EB0057;">After Mairie</h2>
+  <h2 class="event-title reveal" style="font-size:1.8rem;color:#EB0057;">AFTER MAIRIE</h2>
 
   <p class="event-intro reveal" style="font-weight:600;color:#000000;">
     On se retrouve chez Dana & Cyril
@@ -1173,15 +1176,15 @@ footer .footer-text {
   <a href="#rsvp" class="save-date-btn">Je bloque la date !</a>
 </section>
 
-<div class="section-sep reveal">&#10047; &#10047; &#10047;</div>
+<div class="section-sep reveal">&#10084; &#10084; &#10084;</div>
 
 <!-- ============================================================
      BEACH PARTY
      ============================================================ -->
 <section id="beach" class="event-section">
-  <div class="event-illustration" data-anim style="position:relative;display:inline-block;">
-    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:100%;max-width:550px;">
-    <div style="position:absolute;bottom:33%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
+  <div class="event-illustration" data-anim style="position:relative;width:200px;height:200px;overflow:hidden;margin:0 0 2.5rem auto;border-radius:50%;">
+    <img src="soleil_love_transparent.webp" alt="Chill on the Beach" style="width:300px;max-width:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+    <div style="position:absolute;bottom:30%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#000000;letter-spacing:2px;">21.10.25</div>
   </div>
 
   <h2 class="event-title reveal" style="color:#EE3C11;">Chill on the Beach</h2>
